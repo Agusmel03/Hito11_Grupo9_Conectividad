@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fixture 2030 | Grupo 9</title>
+  <link rel="stylesheet" href="/ui/styles.css">
+  <link rel="stylesheet" href="/ui/explorer.css">
+  <script src="/ui/vendor/vis-network.min.js" defer></script>
+  <script src="/ui/vendor/chart.umd.js" defer></script>
+  <script src="/ui/vendor/lucide.min.js" defer></script>
+  <script src="/ui/views.js" defer></script>
+  <script src="/ui/explorer.js" defer></script>
+  <script src="/ui/data-explorer.js" defer></script>
+  <script src="/ui/app.js" defer></script>
+</head>
+<body>
+  <header><div class="brand"><span class="mark" aria-hidden="true">F<span>30</span></span><div><strong>Fixture 2030</strong><small>Grupo 9 / API integrada</small></div></div><a href="/docs" target="_blank" rel="noopener">Swagger &#8599;</a></header>
+  <main>
+    <section class="heading"><div><p class="eyebrow">LABORATORIO DE DATOS</p><h1>Explorar el Fixture</h1></div><button id="health-refresh" type="button">Actualizar conexiones</button></section>
+    <section id="health" class="health" aria-label="Estado de las bases" aria-live="polite"></section>
+    <nav id="tabs" aria-label="Modulos" role="tablist"></nav>
+    <section class="workspace" aria-labelledby="module-title">
+      <div class="section-title"><h2 id="module-title"></h2><span id="source" class="source"></span></div>
+      <form id="query-form"><div id="fields" class="fields"></div><button type="submit" id="submit" class="primary">Consultar</button></form>
+      <div class="result-bar"><div><span id="result-state" role="status" aria-live="polite">Sin consultar</span><span id="timing"></span></div><button id="next" type="button" hidden>Siguiente &#8594;</button></div>
+      <div id="error" role="alert" hidden></div>
+      <div id="results" class="results"><p class="empty">Sin resultados.</p></div>
+      <details id="raw"><summary>Respuesta JSON</summary><pre id="json">{}</pre></details>
+      <div class="request"><span id="endpoint"></span><span id="request-id"></span></div>
+    </section>
+    <footer><span>Fixture Mundial 2030</span><span>Entorno local &middot; Solo lectura</span></footer>
+  </main>
+</body>
+</html>

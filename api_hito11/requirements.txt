@@ -1,0 +1,14 @@
+fastapi==0.115.12
+uvicorn==0.34.2
+pydantic==2.11.4
+pydantic-settings==2.9.1
+pymongo==4.12.1
+neo4j==5.28.1
+cassandra-driver==3.29.2
+redis==6.0.0
+influxdb-client==1.48.0
+intersystems-irispython==5.3.2
+httpx==0.28.1
+pytest==8.3.5
+PyYAML==6.0.2
+jsonschema==4.23.0

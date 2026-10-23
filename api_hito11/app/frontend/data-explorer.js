@@ -1,0 +1,10 @@
+window.DataExplorer = (key,root,data) => {
+  const make=(tag,text)=>{const e=document.createElement(tag);if(text)e.textContent=text;return e;};
+  const toolbar=make('div');toolbar.className='data-tools';
+  const search=make('input');search.type='search';search.placeholder='Buscar en los registros cargados';search.setAttribute('aria-label','Buscar en registros cargados');
+  const mode=make('select');mode.setAttribute('aria-label','Presentacion');for(const s of ['Visual','Tabla'])mode.append(make('option',s));
+  const download=make('button','Descargar JSON'),count=make('p'),body=make('div');count.className='view-summary';toolbar.append(search,mode,download);root.append(toolbar,count,body);
+  const field=Array.isArray(data.items)?'items':Array.isArray(data.eventos)?'eventos':null,rows=field?data[field]:[data];let cleanup=()=>{},filtered=rows;
+  function render(){cleanup();body.replaceChildren();const q=search.value.trim().toLocaleLowerCase();filtered=rows.filter(r=>JSON.stringify(r).toLocaleLowerCase().includes(q));count.textContent=filtered.length+' de '+rows.length+' registros cargados';if(!filtered.length){body.textContent='Sin coincidencias.';return;}if(mode.value==='Visual'){cleanup=FixtureViews.render(key,body,field?{...data,[field]:filtered}:filtered[0]);return;}cleanup=()=>{};const scroll=make('div');scroll.className='data-grid';const t=make('table'),head=make('tr'),keys=[...new Set(filtered.flatMap(r=>Object.keys(r)))];for(const k of keys)head.append(make('th',k));t.append(head);for(const row of filtered){const tr=make('tr');for(const k of keys){const v=row[k];tr.append(make('td',v==null?'Sin dato':typeof v==='object'?JSON.stringify(v):String(v)));}t.append(tr);}scroll.append(t);body.append(scroll);}
+  search.oninput=render;mode.onchange=render;download.onclick=()=>{const blob=new Blob([JSON.stringify(field?{...data,[field]:filtered}:filtered,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=make('a');a.href=url;a.download='fixture2030-'+key+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};render();return()=>cleanup();
+};

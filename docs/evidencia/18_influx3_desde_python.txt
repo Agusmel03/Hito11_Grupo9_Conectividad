@@ -1,0 +1,6 @@
+﻿HITO 11 - INFLUXDB 3 CORE DESDE PYTHON
+
+jueves, 22 de octubre de 2026 23:26:38
+
+
+Consulta SQL: [{'total_puntos': 8640}]
