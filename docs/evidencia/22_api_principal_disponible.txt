@@ -1,0 +1,9 @@
+﻿HTTP/1.1 200 OK
+date: Fri, 23 Oct 2026 03:23:57 GMT
+server: uvicorn
+content-length: 310
+content-type: application/json
+x-request-id: bd52651b-55b6-4a74-a14d-fd3f61956364
+cache-control: no-store
+
+{"data":{"estado":"ok","dependencias":{"mongodb":{"estado":"ok","duracion_ms":1.48},"neo4j":{"estado":"ok","duracion_ms":45.21},"cassandra":{"estado":"ok","duracion_ms":3.66},"redis":{"estado":"ok","duracion_ms":1.98},"influxdb":{"estado":"ok","duracion_ms":27.96},"iris":{"estado":"ok","duracion_ms":16.83}}}}

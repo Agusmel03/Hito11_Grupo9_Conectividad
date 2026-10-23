@@ -1,0 +1,9 @@
+﻿HTTP/1.1 503 Service Unavailable
+date: Fri, 23 Oct 2026 03:23:57 GMT
+server: uvicorn
+content-length: 327
+content-type: application/json
+x-request-id: 5cbab12f-857c-4da5-aeeb-1f27d78de929
+cache-control: no-store
+
+{"data":{"estado":"degradado","dependencias":{"mongodb":{"estado":"ok","duracion_ms":2.17},"neo4j":{"estado":"ok","duracion_ms":6.76},"cassandra":{"estado":"ok","duracion_ms":4.56},"redis":{"estado":"no_disponible","duracion_ms":4.15},"influxdb":{"estado":"ok","duracion_ms":36.32},"iris":{"estado":"ok","duracion_ms":31.64}}}}
