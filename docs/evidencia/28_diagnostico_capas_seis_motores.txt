@@ -1,0 +1,7 @@
+﻿mongodb {"tcp": {"estado": "ok", "detalle": "DNS y TCP disponibles", "duracion_ms": 1.11}, "native": {"estado": "ok", "detalle": "Ping nativo correcto", "duracion_ms": 15.03}, "api": {"estado": "ok", "detalle": "HTTP 200", "duracion_ms": 39.8}}
+neo4j {"tcp": {"estado": "ok", "detalle": "DNS y TCP disponibles", "duracion_ms": 0.94}, "native": {"estado": "ok", "detalle": "Ping nativo correcto", "duracion_ms": 9.68}, "api": {"estado": "ok", "detalle": "HTTP 200", "duracion_ms": 31.04}}
+cassandra {"tcp": {"estado": "ok", "detalle": "DNS y TCP disponibles", "duracion_ms": 0.9}, "native": {"estado": "ok", "detalle": "Ping nativo correcto", "duracion_ms": 29.55}, "api": {"estado": "ok", "detalle": "HTTP 200", "duracion_ms": 36.1}}
+redis {"tcp": {"estado": "ok", "detalle": "DNS y TCP disponibles", "duracion_ms": 1.0}, "native": {"estado": "ok", "detalle": "Ping nativo correcto", "duracion_ms": 1.35}, "api": {"estado": "ok", "detalle": "HTTP 200", "duracion_ms": 38.34}}
+influxdb {"tcp": {"estado": "ok", "detalle": "DNS y TCP disponibles", "duracion_ms": 0.82}, "native": {"estado": "ok", "detalle": "Ping nativo correcto", "duracion_ms": 26.18}, "api": {"estado": "ok", "detalle": "HTTP 200", "duracion_ms": 31.36}}
+iris {"tcp": {"estado": "ok", "detalle": "DNS y TCP disponibles", "duracion_ms": 0.89}, "native": {"estado": "ok", "detalle": "Ping nativo correcto", "duracion_ms": 23.16}, "api": {"estado": "ok", "detalle": "HTTP 200", "duracion_ms": 30.3}}
+RESUMEN: 6 motores; 0 comprobaciones no OK
