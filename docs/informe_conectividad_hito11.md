@@ -1,4 +1,4 @@
-﻿# Informe de conectividad - Hito 11 - Grupo 9
+# Informe de conectividad - Hito 11 - Grupo 9
 
 ## Proyecto
 
@@ -75,13 +75,32 @@ api_hito11/tests/test_integracion_hito11.py
 
 Todas estas evidencias se encuentran en docs/evidencia/.
 
+## Persistencia verificada
+
+Se comprobaron lecturas posteriores al reinicio de
+cuatro contenedores de bases de datos:
+
+- Cassandra: comentario P001 / USR001 conservado.
+- Redis: clave permanente conservada, TTL -1.
+- InfluxDB 3: 8640 puntos y 4 partidos conservados.
+- IRIS: partido P001 y dos eventos conservados.
+
+Evidencias:
+- 12_cassandra_persistencia.txt
+- 13_redis_persistencia.txt
+- 16_influx3_persistencia.txt
+- 08_iris_antes.txt
+- 09_iris_despues.txt
+
+Estas pruebas confirman persistencia tras reinicio,
+no necesariamente tras eliminar y recrear contenedores.
 ## Limitaciones y verificaciones pendientes
 
 - Contrastar la implementacion con la consigna oficial y sus RF.
 - Ampliar las pruebas automatizadas de errores y validaciones.
 - Verificar que las agregaciones SQL de InfluxDB 3 conservan
   la semantica requerida respecto de las consultas Flux originales.
-- Revisar el alcance de las pruebas de persistencia existentes.
+- Verificar persistencia tras eliminar y recrear contenedores; solo se comprobo el reinicio.
 - Verificar el comportamiento de sesiones Redis activas.
 - Completar las instrucciones de ejecucion y entrega.
 
