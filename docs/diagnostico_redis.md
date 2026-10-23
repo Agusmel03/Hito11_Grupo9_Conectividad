@@ -40,3 +40,19 @@ Esto es un comportamiento esperado y no implica una falla de persistencia.
 - Conexión mediante el cliente Redis de FastAPI.
 - Consulta a través de un endpoint HTTP.
 - Prueba de fallo controlado y recuperación.
+
+## Actualización de integración - Hito 11
+
+Se completaron las verificaciones posteriores al diagnóstico original:
+
+- Conectividad desde el entorno de FastAPI.
+- Cliente Redis integrado con la API.
+- Consulta HTTP de sesión inexistente: HTTP 404 esperado.
+- Prueba controlada de Redis inaccesible: HTTP 503.
+- API principal disponible durante la prueba.
+- Recuperación de la instancia temporal: HTTP 200.
+- Persistencia tras reinicio: clave permanente conservada.
+
+Evidencias: 13, 17, 21, 22, 23 y 27 de docs/evidencia/.
+
+Queda pendiente verificar una sesión activa mediante HTTP.

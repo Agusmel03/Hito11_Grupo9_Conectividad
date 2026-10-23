@@ -35,3 +35,19 @@ No se ejecutaron las cargas masivas.
 - Conexión con el driver Cassandra de FastAPI.
 - Consulta mediante endpoint HTTP de la API.
 - Pruebas de fallo controlado y recuperación.
+
+## Actualización de integración - Hito 11
+
+Las siguientes tareas, indicadas como pendientes en el diagnóstico
+original, fueron completadas posteriormente:
+
+- Conectividad desde el entorno de la API.
+- Conexión mediante el driver de Cassandra.
+- Lectura HTTP de comentarios del partido P001: HTTP 200.
+- Prueba automatizada de integración aprobada.
+- Persistencia tras reinicio: comentario original conservado.
+
+Evidencias: 12, 17, 24 y 27 de docs/evidencia/.
+
+La prueba de fallo controlado específica de Cassandra no está
+documentada. La degradación y recuperación se probaron con Redis.

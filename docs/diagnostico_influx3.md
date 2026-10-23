@@ -41,3 +41,21 @@ todavía todas las consultas y agregaciones Flux.
 - Comprobar conectividad desde el entorno de FastAPI.
 - Ejecutar una consulta mediante la API REST.
 - Realizar pruebas de fallo y recuperación.
+
+## Actualización de integración - Hito 11
+
+Se completaron las siguientes verificaciones:
+
+- Persistencia después del reinicio del contenedor.
+- Conservación de 8640 puntos y 4 partidos.
+- Conectividad desde Python y desde FastAPI.
+- Consulta HTTP de estadísticas del partido P001: HTTP 200.
+- Prueba automatizada de integración aprobada.
+
+Evidencias: 16, 18, 20 y 27 de docs/evidencia/.
+
+Sigue pendiente comparar formalmente la semántica de las
+agregaciones SQL de InfluxDB 3 con las consultas Flux originales.
+
+No se documentó una prueba de fallo controlado específica
+de InfluxDB 3.

@@ -54,3 +54,19 @@ No se restauró el volumen de datos de macOS.
 La propiedad Estado continúa siendo modificable directamente.
 No están completamente encapsuladas las transiciones de estado,
 según la observación del profesor en el Hito 9.
+
+## Actualización de integración - Hito 11
+
+Se completaron las siguientes verificaciones:
+
+- Conexión desde el adaptador IRIS de FastAPI.
+- Autorización SELECT sobre Fixture2030.Partido y
+  Fixture2030.Evento para el usuario de integración.
+- Consulta HTTP del partido P001 y sus dos eventos: HTTP 200.
+- Prueba automatizada de integración aprobada.
+- Persistencia tras reinicio: partido y eventos conservados.
+
+Evidencias: 08, 09, 25, 26 y 27 de docs/evidencia/.
+
+La persistencia tras eliminar y recrear el contenedor
+no fue verificada.
