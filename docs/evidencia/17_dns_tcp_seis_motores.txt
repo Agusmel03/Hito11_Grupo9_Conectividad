@@ -1,0 +1,18 @@
+﻿HITO 11 - PRUEBAS DNS Y TCP DESDE CONTENEDOR API
+
+jueves, 22 de octubre de 2026 23:24:38
+
+
+Red: fixture2030-hito11-net
+MongoDB | DNS: OK (172.28.0.2)
+MongoDB | TCP: OK (27017)
+Neo4j | DNS: OK (172.28.0.3)
+Neo4j | TCP: OK (7687)
+Cassandra | DNS: OK (172.28.0.4)
+Cassandra | TCP: OK (9042)
+Redis | DNS: OK (172.28.0.5)
+Redis | TCP: OK (6379)
+InfluxDB 3 | DNS: OK (172.28.0.6)
+InfluxDB 3 | TCP: OK (8181)
+IRIS | DNS: OK (172.28.0.7)
+IRIS | TCP: OK (1972)
