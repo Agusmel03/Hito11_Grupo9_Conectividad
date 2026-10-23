@@ -1,0 +1,17 @@
+﻿============================= test session starts ==============================
+platform linux -- Python 3.11.12, pytest-8.3.5, pluggy-1.6.0 -- /usr/local/bin/python
+rootdir: /app
+plugins: anyio-4.15.1
+collecting ... collected 9 items
+
+tests/test_integracion_hito11.py::test_liveness PASSED                   [ 11%]
+tests/test_integracion_hito11.py::test_salud_seis_motores PASSED         [ 22%]
+tests/test_integracion_hito11.py::test_consultas_funcionales[/api/v1/equipos] PASSED [ 33%]
+tests/test_integracion_hito11.py::test_consultas_funcionales[/api/v1/grafo] PASSED [ 44%]
+tests/test_integracion_hito11.py::test_consultas_funcionales[/api/v1/objetos/partidos/P001] PASSED [ 55%]
+tests/test_integracion_hito11.py::test_cassandra_comentarios PASSED      [ 66%]
+tests/test_integracion_hito11.py::test_influxdb_estadisticas PASSED      [ 77%]
+tests/test_integracion_hito11.py::test_redis_sesion_inexistente PASSED   [ 88%]
+tests/test_integracion_hito11.py::test_cassandra_parametro_obligatorio PASSED [100%]
+
+============================== 9 passed in 0.74s ===============================
