@@ -1,0 +1,9 @@
+﻿HTTP/1.1 200 OK
+date: Fri, 23 Oct 2026 03:30:19 GMT
+server: uvicorn
+content-length: 252
+content-type: application/json
+x-request-id: e07f8eb8-0bb3-42e0-887e-5c6ec07ebebe
+cache-control: no-store
+
+{"data":{"partido_id":"P001","bucket_10m":"2030-06-10T18:00:00Z","shard":0,"items":[{"comentario_id":"8cabc93d-e904-4e8d-ac4f-52fc72b0cc3c","creado_en":"2030-06-10T18:03:15Z","usuario_id":"USR001","contenido":"Que partidazo"}],"siguiente_cursor":null}}
