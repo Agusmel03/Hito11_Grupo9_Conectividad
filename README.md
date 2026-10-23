@@ -8,6 +8,12 @@ Este hito evalúa la conectividad de la API REST del Hito 10 con los motores NoS
 
 ## Integración de correcciones (2026-10-23)
 
+**Para cerrar la entrega:** seguir la [guía de entrega](docs/guia_entrega.md).
+En la computadora del integrante con el Docker original, después de actualizar
+y recargar la API, ejecutar `python scripts/verificar_entrega.py`. Recoge evidencia
+nueva de código desplegado, conectividad, tests y agregaciones, sin cambiar datos
+ni servicios. Sin Docker deja registrada la comprobación como no ejecutada.
+
 Se conservan la API, sus rutas, los seis adaptadores, los tests originales y todas
 las evidencias previas. El motor temporal activo es **InfluxDB 3 Core / SQL**.
 Esta revisión no crea bases, contenedores, clases ni datos de reemplazo.

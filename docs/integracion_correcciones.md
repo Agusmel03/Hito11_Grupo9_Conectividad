@@ -140,3 +140,18 @@ Agregados:
 
 Sin eliminaciones. Se conserva bytecode fuera de Git; no se incorporan los ZIP,
 PDF, credenciales ni dependencias instaladas en `.venv`.
+
+## Preparación final para el laboratorio del equipo
+
+Se agregó [guia_entrega.md](guia_entrega.md), `scripts/verificar_entrega.py` y
+`api_hito11/verificar_agregaciones.py`: comprueban código desplegado, recogen
+resultados de tests/conectividad y contrastan SQL con puntos existentes. No crean
+ni detienen servicios. La revisión final local aprobó **46 tests**, con una
+advertencia de deprecación de Starlette/AnyIO. Se agregaron seis pruebas del
+procedimiento en `api_hito11/tests/unit/test_entrega.py`.
+
+La ejecución sin Docker quedó registrada en
+`docs/evidencia/32_preparacion_sin_docker.json`, como `no_probado` y con cambios
+todavía sin commit al momento de ejecutar. No es una evidencia de éxito en Docker.
+El equipo confirmó que un integrante probó el estado anterior en su Docker;
+esa confirmación se conserva como antecedente, sin atribuirla al código nuevo.

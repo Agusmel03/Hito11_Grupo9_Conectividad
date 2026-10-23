@@ -1,0 +1,14 @@
+{
+  "fecha_utc": "2026-10-23T20:04:30.956309+00:00",
+  "origen": "host_con_docker_exec",
+  "estado": "no_probado",
+  "pendientes_manuales": [
+    "Cotejar versiones y procedencia de las seis instancias con H4-H9",
+    "RF21: detencion temporal y recuperacion en ventana coordinada",
+    "Revisar permisos y errores de contexto por motor; adjuntar logs correlacionados"
+  ],
+  "limites": "No cambia datos ni servicios. Codigo cotejado en disco; la API debe haberse recargado con ese codigo.",
+  "revision": "878b5adf3399948db74a62ffa579eafc4a62ce95",
+  "codigo_sin_commit": true,
+  "motivo": "docker_no_instalado"
+}
