@@ -1,0 +1,12 @@
+﻿HITO 11 - INFLUXDB 3 CORE - PERSISTENCIA TRAS REINICIO
+
+jueves, 22 de octubre de 2026 23:08:34
+
+
+Contenedor reiniciado correctamente.
+Consulta SQL posterior al reinicio:
++--------------+----------+
+| total_puntos | partidos |
++--------------+----------+
+| 8640         | 4        |
++--------------+----------+
