@@ -2,7 +2,7 @@
 
 ## Proyecto
 
-Fixture Mundial 2030 - Ingeniería de Datos II.
+Fixture Mundial 2030 - IngenierÃ­a de Datos II.
 
 ## Objetivo
 
@@ -94,6 +94,42 @@ Evidencias:
 
 Estas pruebas confirman persistencia tras reinicio,
 no necesariamente tras eliminar y recrear contenedores.
+## Verificaciones complementarias finales
+
+### Diagnostico por capas
+
+Se comprobaron los seis motores mediante tres capas:
+
+- TCP: resolucion DNS y conexion al puerto.
+- Native: comprobacion mediante el adaptador del motor.
+- API: consulta HTTP de salud de la dependencia.
+
+Resultado: 18 de 18 comprobaciones satisfactorias.
+
+Evidencia: 28_diagnostico_capas_seis_motores.txt.
+
+### Sesion activa de Redis
+
+Se creo una sesion temporal con estado activa y TTL de 120 segundos.
+
+La API devolvio HTTP 200 y confirmo el estado activa.
+La sesion temporal fue eliminada al finalizar.
+
+Evidencia: 29_redis_sesion_activa_http200.txt.
+
+### Comparacion de InfluxDB 3
+
+Se analizaron 2160 registros del partido P001,
+agrupados en 36 ventanas de cinco minutos.
+
+No se detectaron diferencias entre MAX y last
+para los datos examinados.
+
+Esto no demuestra equivalencia general.
+MAX y last pueden diferir en otros conjuntos de datos.
+Las etiquetas temporales de Flux y SQL tambien difieren.
+
+Evidencia: 30_influx3_comparacion_agregaciones.txt.
 ## Limitaciones y verificaciones pendientes
 
 - Contrastar la implementacion con la consigna oficial y sus RF.
@@ -101,8 +137,8 @@ no necesariamente tras eliminar y recrear contenedores.
 - Verificar que las agregaciones SQL de InfluxDB 3 conservan
   la semantica requerida respecto de las consultas Flux originales.
 - Verificar persistencia tras eliminar y recrear contenedores; solo se comprobo el reinicio.
-- Verificar el comportamiento de sesiones Redis activas.
-- Completar las instrucciones de ejecucion y entrega.
+- Sesiones Redis activas: verificadas mediante HTTP 200.
+- Instrucciones de ejecucion y diagnostico: documentadas en README.md.
 
 ## Conservacion de datos
 

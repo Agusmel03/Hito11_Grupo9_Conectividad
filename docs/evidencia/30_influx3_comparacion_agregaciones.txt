@@ -1,0 +1,23 @@
+﻿Hito 11 - Comparacion de agregaciones InfluxDB 3
+
+Motor: InfluxDB 3 Core
+Partido analizado: P001
+Resolucion: 5 minutos
+
+Comparacion:
+- Flux original: last(pases_completados_total).
+- SQL actual: MAX(pases_completados_total).
+- Filas analizadas: 2160.
+- Ventanas analizadas: 36.
+- Diferencias detectadas: 0.
+
+Conclusion:
+Para las ventanas analizadas del partido P001,
+MAX y last devolvieron los mismos valores.
+
+Limitaciones:
+- MAX y last no son equivalentes para cualquier conjunto de datos.
+- Flux utiliza por defecto el final de la ventana como etiqueta.
+- SQL date_bin utiliza el inicio de la ventana.
+- No se ha demostrado equivalencia general para todos los partidos.
+- Esta prueba no modifica registros ni contenedores.

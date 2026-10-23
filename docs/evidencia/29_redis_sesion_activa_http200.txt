@@ -1,0 +1,23 @@
+﻿Hito 11 - Verificacion de sesion activa en Redis
+
+Motor: Redis
+Endpoint: GET /api/v1/sesiones/{session_id}
+
+Preparacion:
+- Se creo una sesion temporal con identificador aleatorio.
+- Estado: activa.
+- TTL inicial: 120 segundos.
+
+Resultado HTTP:
+- Codigo: 200.
+- Estado devuelto: activa.
+- TTL devuelto: 120 segundos.
+- Resultado: SESION_ACTIVA_OK.
+
+Limpieza:
+- La sesion temporal fue eliminada al finalizar.
+- No se modificaron las sesiones preexistentes.
+
+Pruebas complementarias:
+- Sesion inexistente: HTTP 404, verificado anteriormente.
+- Conectividad Redis: TCP, native y API correctos.
