@@ -61,3 +61,47 @@ Resultado verificado: 9 pruebas aprobadas.
 - No subir credenciales ni tokens a Git.
 - No eliminar los volumenes Docker.
 - No modificar la API original del Hito 10.
+
+## Diagnostico de conectividad por capas
+
+El Hito 11 incluye un validador independiente:
+
+api_hito11/validar_conectividad.py
+
+Permite comprobar seis motores mediante cuatro modos:
+
+- tcp: resolucion DNS y conexion al puerto.
+- native: comprobacion mediante el adaptador del motor.
+- api: consulta HTTP del estado de la dependencia.
+- all: ejecuta los tres modos.
+
+### Ejecutar el diagnostico completo
+
+Desde la raiz del repositorio, con los contenedores activos:
+
+    docker exec fixture2030-hito11-api python /app/validar_conectividad.py --mode all --producto todos
+
+### Ejecutar un modo especifico
+
+    docker exec fixture2030-hito11-api python /app/validar_conectividad.py --mode tcp --producto todos
+
+    docker exec fixture2030-hito11-api python /app/validar_conectividad.py --mode native --producto todos
+
+    docker exec fixture2030-hito11-api python /app/validar_conectividad.py --mode api --producto todos
+
+### Evaluar un solo motor
+
+    docker exec fixture2030-hito11-api python /app/validar_conectividad.py --mode all --producto iris
+
+### Resultados verificados
+
+- Seis motores evaluados.
+- Dieciocho comprobaciones satisfactorias en modo all.
+- Modos individuales verificados.
+- Evidencia: docs/evidencia/28_diagnostico_capas_seis_motores.txt
+
+Las comprobaciones se ejecutan dentro del contenedor de la API,
+que utiliza la misma red y configuracion de los motores.
+
+El diagnostico native reutiliza los metodos ping de los adaptadores.
+No sustituye una auditoria completa de permisos o esquemas.
