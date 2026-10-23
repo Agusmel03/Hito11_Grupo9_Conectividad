@@ -1,4 +1,5 @@
 import secrets
+from typing import Literal
 
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -22,9 +23,9 @@ class Settings(BaseSettings):
     cassandra_user: str = ""
     cassandra_password: SecretStr = SecretStr("")
     redis_url: SecretStr = SecretStr("redis://localhost:6379/0")
-    influx_url: str = "http://localhost:8086"
+    influx_url: str = "http://localhost:8181"
     influx_database: str = "fixture2030"
-    influx_mode: str = "v3"
+    influx_mode: Literal["v3", "influx3"] = "v3"
     influx_org: str = "grupo9"
     influx_bucket: str = "estadisticas_live"
     influx_token: SecretStr = SecretStr("")

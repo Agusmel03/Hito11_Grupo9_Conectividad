@@ -1,5 +1,8 @@
 import httpx
 
+from app.errors import ApiError
+from app.observability import guarded
+
 
 class Influx3Adapter:
     def __init__(self, settings):
@@ -9,25 +12,22 @@ class Influx3Adapter:
         self.token = settings.influx_token.get_secret_value()
         self.timeout = settings.timeout_seconds
 
+    @guarded("influxdb", httpx.HTTPError)
     def query_sql(self, sql):
-        response = httpx.get(
-            f"{self.url}/api/v3/query_sql",
-            params={
-                "db": self.database,
-                "q": sql,
-                "format": "json",
-            },
-            headers={
-                "Authorization": f"Bearer {self.token}",
-            },
-            timeout=self.timeout,
-        )
+        try:
+            response = httpx.get(
+                f"{self.url}/api/v3/query_sql",
+                params={"db": self.database, "q": sql, "format": "json"},
+                headers={"Authorization": f"Bearer {self.token}"},
+                timeout=self.timeout,
+            )
+        except httpx.TimeoutException:
+            raise ApiError(503, "dependencia_timeout",
+                           "La fuente de datos no respondio a tiempo.", "influxdb") from None
         response.raise_for_status()
         return response.json()
 
     def statistics(self, match_id, query):
-        from datetime import timedelta
-
         minutos = {
             "1m": 1,
             "5m": 5,
@@ -35,8 +35,9 @@ class Influx3Adapter:
             "1h": 60,
         }[query.resolucion]
 
-        inicio = query.desde.strftime("%Y-%m-%dT%H:%M:%SZ")
-        fin = query.hasta.strftime("%Y-%m-%dT%H:%M:%SZ")
+        # StatsQuery normaliza a UTC. Conservar tambien fracciones de segundo.
+        inicio = query.desde.isoformat()
+        fin = query.hasta.isoformat()
 
         # Los identificadores de partido y equipo se validan
         # antes de llegar al adaptador.
@@ -53,11 +54,11 @@ class Influx3Adapter:
                 INTERVAL '{minutos} minutes',
                 time,
                 TIMESTAMP '1970-01-01T00:00:00Z'
-            ) AS tiempo,
+            ) + INTERVAL '{minutos} minutes' AS tiempo,
             equipo_codigo,
             sede_id,
             AVG(posesion_pct) AS posesion_pct,
-            MAX(pases_completados_total) AS pases_completados_total,
+            selector_last(pases_completados_total, time)['value'] AS pases_completados_total,
             SUM(tiros_intervalo) AS tiros_intervalo,
             SUM(recuperaciones_intervalo) AS recuperaciones_intervalo
         FROM estadisticas_equipo
@@ -88,7 +89,7 @@ class Influx3Adapter:
         ]
     def ping(self):
         rows = self.query_sql(
-            "SELECT COUNT(*) AS total FROM estadisticas_equipo"
+            "SELECT time FROM estadisticas_equipo LIMIT 1"
         )
         if not isinstance(rows, list):
             raise ValueError("Respuesta SQL inesperada")
