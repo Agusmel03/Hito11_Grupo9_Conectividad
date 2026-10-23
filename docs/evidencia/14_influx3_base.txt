@@ -1,0 +1,7 @@
+﻿HITO 11 - INFLUXDB 3 CORE - BASE DE DATOS
++---------------+
+| iox::database |
++---------------+
+| _internal     |
+| fixture2030   |
++---------------+

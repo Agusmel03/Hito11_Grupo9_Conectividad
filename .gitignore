@@ -9,3 +9,7 @@ __pycache__/
 .vscode/
 .DS_Store
 *.log
+
+config/influx3_token_local.txt
+
+config/influx3_rotacion_privada.txt
