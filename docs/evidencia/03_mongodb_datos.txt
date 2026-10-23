@@ -1,0 +1,31 @@
+﻿test> 
+test> 
+test> === COLECCIONES ===
+
+test> [
+  'jugadores',
+  'equipos'
+]
+
+test> 
+test> === CANTIDAD DE DOCUMENTOS ===
+
+test> 
+test> | | jugadores: 1536
+equipos: 64
+
+test> 
+test> === DOCUMENTO DE EJEMPLO ===
+
+test> 
+test> | | | | | | | | jugadores:
+{
+  _id: ObjectId('0000000000000000000186a1')
+}
+equipos:
+{
+  _id: ObjectId('000000000000000000000001')
+}
+
+test> 
+test> 

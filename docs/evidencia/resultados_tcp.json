@@ -1,0 +1,68 @@
+[
+  {
+    "producto": "mongodb",
+    "origen": "Windows - PowerShell / Python local",
+    "host": "127.0.0.1",
+    "puerto": 27017,
+    "capa": "TCP",
+    "fecha": "2026-10-23T00:33:08.081647+00:00",
+    "estado": "CONNECTION_REFUSED",
+    "detalle": "No se acepta la conexion en este puerto.",
+    "duracion_ms": 2051.2
+  },
+  {
+    "producto": "neo4j",
+    "origen": "Windows - PowerShell / Python local",
+    "host": "127.0.0.1",
+    "puerto": 7687,
+    "capa": "TCP",
+    "fecha": "2026-10-23T00:33:10.133005+00:00",
+    "estado": "CONNECTION_REFUSED",
+    "detalle": "No se acepta la conexion en este puerto.",
+    "duracion_ms": 2054.89
+  },
+  {
+    "producto": "cassandra",
+    "origen": "Windows - PowerShell / Python local",
+    "host": "127.0.0.1",
+    "puerto": 9042,
+    "capa": "TCP",
+    "fecha": "2026-10-23T00:33:12.188260+00:00",
+    "estado": "CONNECTION_REFUSED",
+    "detalle": "No se acepta la conexion en este puerto.",
+    "duracion_ms": 2040.52
+  },
+  {
+    "producto": "redis",
+    "origen": "Windows - PowerShell / Python local",
+    "host": "127.0.0.1",
+    "puerto": 6379,
+    "capa": "TCP",
+    "fecha": "2026-10-23T00:33:14.228748+00:00",
+    "estado": "CONNECTION_REFUSED",
+    "detalle": "No se acepta la conexion en este puerto.",
+    "duracion_ms": 2038.02
+  },
+  {
+    "producto": "influxdb",
+    "origen": "Windows - PowerShell / Python local",
+    "host": "127.0.0.1",
+    "puerto": 8181,
+    "capa": "TCP",
+    "fecha": "2026-10-23T00:33:16.266925+00:00",
+    "estado": "CONNECTION_REFUSED",
+    "detalle": "No se acepta la conexion en este puerto.",
+    "duracion_ms": 2056.67
+  },
+  {
+    "producto": "iris",
+    "origen": "Windows - PowerShell / Python local",
+    "host": "127.0.0.1",
+    "puerto": 1972,
+    "capa": "TCP",
+    "fecha": "2026-10-23T00:33:18.323741+00:00",
+    "estado": "CONNECTION_REFUSED",
+    "detalle": "No se acepta la conexion en este puerto.",
+    "duracion_ms": 2051.94
+  }
+]

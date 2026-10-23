@@ -1,0 +1,10 @@
+﻿
+    "HITO 11 - NEO4J"
+    Get-Date
+    ""
+    "ESTADO DEL CONTENEDOR:"
+    docker ps --filter "name=fixture2030-neo4j"
+    ""
+    "VERSION DEL CLIENTE:"
+    docker exec fixture2030-neo4j cypher-shell --version
+

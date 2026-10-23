@@ -1,0 +1,12 @@
+﻿
+Node: 93521a12feb8, Instance: IRIS
+
+USER>
+
+USER>
+Partido: P001
+
+USER>
+Eventos: 2
+
+USER>
