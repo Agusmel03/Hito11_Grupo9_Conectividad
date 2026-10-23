@@ -1,0 +1,50 @@
+Hito 11 - Integracion de correcciones - Resumen de ejecucion
+Fecha: 2026-10-23
+Entorno: host Windows, Python 3.13.7, entorno virtual local .venv.
+Base: 772aeedf7e9f76a8eb17d18b35b21b34781f5a43
+Rama: correcciones/hito11-conectividad-trazabilidad
+Version del codigo: commit que incorpora este archivo; consultar git log.
+Este archivo resume salidas observadas; no es una captura de Docker.
+
+1. Pruebas locales de regresion/contrato
+Comando desde la raiz:
+.\.venv\Scripts\python.exe -m pytest api_hito11/tests/unit -q -p no:cacheprovider --tb=short
+Resultado observado:
+40 passed, 1 warning in 1.13s
+Advertencia: DeprecationWarning de Starlette por alias BlockingPortal de AnyIO.
+Cobertura: contratos 404/422/503/500, timeout y recuperacion simulados,
+seleccion/cierre de adaptadores, configuracion v3, composicion SQL,
+conservacion de rutas, correlacion y ausencia de datos privados en resultados.
+Limite: dobles en memoria; ninguna consulta SQL ejecutada por un motor real.
+
+2. Suite original conservada
+Comando desde la raiz:
+.\.venv\Scripts\python.exe -m pytest api_hito11/tests/test_integracion_hito11.py -q --tb=no -p no:cacheprovider
+Resultado observado:
+9 failed in 19.17s
+Tests afectados: liveness, salud, equipos, grafo, objeto IRIS, comentarios,
+estadisticas, sesion ausente, validacion de parametro Cassandra.
+No fue posible acceder a la API 127.0.0.1:8000 desde este entorno.
+Sondas HTTP adicionales a /health/live en 8000 y 8011: ConnectTimeout.
+Estado de integracion: NO COMPROBADO; fallos de acceso al entorno.
+No se modificaron los tests para convertir esos fallos en aprobaciones u omisiones.
+
+3. Ausencia de herramientas
+Docker CLI no encontrado en PATH ni en ubicacion habitual de Docker Desktop.
+Se ejecuto:
+.\.venv\Scripts\python.exe api_hito11/validar_conectividad.py --mode native --producto mongodb --origen host --json
+Salida: native.estado=skip, categoria=herramienta_no_disponible,
+detalle=ModuleNotFoundError, errores=0, omitidas=1.
+El entorno de pruebas locales no instala PyMongo ni otros drivers nativos.
+SKIP no afirma que MongoDB este caido.
+
+4. Revision estatica
+git diff --check: sin errores de whitespace.
+La advertencia LF/CRLF es de normalizacion de Git en Windows.
+No se cambiaron los archivos de evidencia anteriores ni la suite original.
+No se crearon bases, contenedores ni registros. No se operaron volumenes Docker.
+
+Pendiente: SQL real Core, diagnostico completo desde la API original,
+autenticacion/autorizacion/contextos, versiones y procedencia de instancias,
+persistencia y detencion temporal/recuperacion RF21.
+Las aprobaciones historicas de las evidencias 27 y 28 no se revalidan aqui.

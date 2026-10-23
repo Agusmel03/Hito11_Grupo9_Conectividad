@@ -60,7 +60,7 @@ def session(session_id: SessionID, svc=Depends(service)):
 
 
 @router.get("/partidos/{partido_id}/estadisticas", tags=["InfluxDB"], response_model=Envelope[Statistics],
-            summary="Agregar estadisticas en una ventana temporal", description="Intervalo [desde,hasta), maximo 24 horas. Posesion: mean; pases acumulados: last; tiros y recuperaciones: sum. Hasta 1000 filas; truncado=true requiere reducir la ventana o aumentar resolucion. tiempo es el final de la ventana Flux, que puede superar hasta en una ventana parcial.")
+            summary="Agregar estadisticas en una ventana temporal", description="Intervalo [desde,hasta), maximo 24 horas. InfluxDB 3 Core / SQL: posesion AVG; pases acumulados selector_last por time; tiros y recuperaciones SUM. Hasta 1000 filas; truncado=true requiere reducir la ventana o aumentar resolucion. tiempo es el final de la ventana (date_bin mas resolucion), que puede superar hasta en una ventana parcial. Timeout: HTTP 503 con codigo dependencia_timeout; otros errores de conexion o HTTP del motor: dependencia_no_disponible.")
 def statistics(partido_id: MatchID, query: Annotated[StatsQuery, Query()], svc=Depends(service)):
     return {"data": svc.statistics(partido_id, query)}
 

@@ -2,6 +2,15 @@
 
 ## Alcance
 
+**Actualización 2026-10-23:** se cotejó esta matriz con los PDF oficiales H10/H11
+y la devolución docente proporcionados por el equipo. Los estados experimentales
+que siguen son históricos y no certifican esta revisión. Ver
+[integración de correcciones](integracion_correcciones.md) para el resultado
+actual y [trazabilidad H4–H9](trazabilidad_hitos_4_9.md) para la procedencia.
+El repositorio sí está publicado en GitHub; las referencias posteriores a
+«sin remoto» describen la auditoría anterior. RF21 y la identidad de las instancias
+continúan pendientes de prueba real. No se reescribieron las evidencias originales.
+
 Esta matriz relaciona la consigna oficial
 con las implementaciones y evidencias disponibles.
 

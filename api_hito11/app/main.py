@@ -1,4 +1,5 @@
 from contextlib import asynccontextmanager
+from importlib import import_module
 import logging
 from pathlib import Path
 from time import perf_counter
@@ -18,16 +19,28 @@ from app.schemas.models import ErrorResponse
 from app.services.fixture import FixtureService
 
 
-def build_adapters(settings):
-    from app.adapters.mongo import MongoAdapter
-    from app.adapters.neo4j import Neo4jAdapter
-    from app.adapters.cassandra import CassandraAdapter
-    from app.adapters.redis import RedisAdapter
-    from app.adapters.influx3 import Influx3Adapter
-    from app.adapters.iris import IrisAdapter
-    return {"mongodb": MongoAdapter(settings), "neo4j": Neo4jAdapter(settings),
-            "cassandra": CassandraAdapter(settings), "redis": RedisAdapter(settings),
-            "influxdb": Influx3Adapter(settings), "iris": IrisAdapter(settings)}
+def build_adapters(settings, products=None):
+    factories = {
+        "mongodb": ("mongo", "MongoAdapter"),
+        "neo4j": ("neo4j", "Neo4jAdapter"),
+        "cassandra": ("cassandra", "CassandraAdapter"),
+        "redis": ("redis", "RedisAdapter"),
+        "influxdb": ("influx3", "Influx3Adapter"),
+        "iris": ("iris", "IrisAdapter"),
+    }
+    clients = {}
+    try:
+        for name in factories if products is None else products:
+            module, adapter = factories[name]
+            clients[name] = getattr(import_module(f"app.adapters.{module}"), adapter)(settings)
+        return clients
+    except Exception:
+        for client in clients.values():
+            try:
+                client.close()
+            except Exception:
+                pass
+        raise
 
 
 def create_app(settings=None, adapters=None):
