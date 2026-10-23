@@ -74,7 +74,7 @@ class Influx3Adapter:
 
         return [
             {
-                "tiempo": fila["tiempo"],
+                "tiempo": fila["tiempo"] + "Z" if isinstance(fila["tiempo"], str) and not fila["tiempo"].endswith(("Z", "+00:00")) else fila["tiempo"],
                 "equipo_codigo": fila["equipo_codigo"],
                 "sede_id": fila["sede_id"],
                 "posesion_pct": fila.get("posesion_pct"),
